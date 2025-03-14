@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>דרישת תשלום</title>
+
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@latest/dist/jspdf.umd.min.js"></script>
+<script src="https://unpkg.com/jspdf@latest/dist/jspdf.customfonts.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
+<script src="https://unpkg.com/jspdf@latest/dist/jspdf.customfonts.min.js"></script>
+
+<script defer src="script.js"></script>
+    
+
+</head>
+<body>
+    <header>
+        <h1>Nailsbar diala</h1>
+        <p>עוסק פטור: 318478708 | אימייל: ddrawshi5@gmail.com</p>
+        <p>תאריך: <span id="currentDate"></span></p>
+        <p>מספר חשבון חיוב: <span id="invoiceNumber">50001</span></p>
+    </header>
+    
+    <section>
+        <label for="customerName">לכבוד:</label>
+        <input type="text" id="customerName" placeholder="הזן שם לקוח">
+    </section>
+    
+    <button onclick="addRow()">הוסף שורה</button>
+    
+    <p>סה"כ לתשלום: <span id="totalAmount">0</span> ₪</p>
+    
+    
+    <table>
+        <thead>
+            <tr>
+                <th>תיאור</th>
+                <th>כמות</th>
+                <th>מחיר ליחידה</th>
+                <th>סה"כ</th>
+                <th>הסר</th>
+            </tr>
+        </thead>
+        <tbody id="invoiceTable">
+            <!-- השורות יתעדכנו דינמית -->
+        </tbody>
+    </table>
+    <button onclick="generatePDF()">📄 ייצא ל-PDF</button>
+</body>
+</html>

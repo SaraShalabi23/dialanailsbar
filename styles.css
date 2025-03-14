@@ -1,0 +1,46 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #fbd9f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: flex-start;
+}
+
+.logo {
+    width: 160px;
+    height: auto;
+    margin-top: 25px;
+    margin-bottom: 150px;
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+button {
+    background-color: #000000;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    margin: 2px 0; /* הקטנתי את המרווח כמעט לאפס */
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    width: 60%;
+    max-width: 300px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
