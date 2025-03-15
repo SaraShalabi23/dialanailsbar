@@ -2,7 +2,7 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: #fbd9f0;
+    background-color: #f0bce0;
     margin: 0;
     padding: 0;
     display: flex;
@@ -11,7 +11,10 @@ body {
     height: 100vh;
     justify-content: flex-start;
 }
-
+section {
+    width: 90%;
+    max-width: 500px;
+}
 .logo {
     width: 160px;
     height: auto;
@@ -40,7 +43,17 @@ button {
     width: 60%;
     max-width: 300px;
 }
-
+header {
+    width: 100%;
+    padding: 10px;
+    background: #db9ec1;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
 button:hover {
     background-color: #0056b3;
+}
+@media screen and (max-width: 600px) {
+    button {
+        width: 100%;
+    }
 }

@@ -3,26 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>דרישת תשלום</title>
-
+    <title>קבלה</title>
 
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/jspdf@latest/dist/jspdf.umd.min.js"></script>
-<script src="https://unpkg.com/jspdf@latest/dist/jspdf.customfonts.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
-<script src="https://unpkg.com/jspdf@latest/dist/jspdf.customfonts.min.js"></script>
-
-<script defer src="script.js"></script>
-    
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
+    <script defer src="script.js"></script>
 </head>
 <body>
     <header>
-        <h1>Nailsbar diala</h1>
+        <h1>Nailsbar Diala</h1>
         <p>עוסק פטור: 318478708 | אימייל: ddrawshi5@gmail.com</p>
         <p>תאריך: <span id="currentDate"></span></p>
-        <p>מספר חשבון חיוב: <span id="invoiceNumber">50001</span></p>
+        <p>מספר קבלה: <span id="receiptNumber">60001</span></p>
     </header>
     
     <section>
@@ -30,15 +23,11 @@
         <input type="text" id="customerName" placeholder="הזן שם לקוח">
         <label for="customerId">ח.פ/ת.ז:</label>
         <input type="text" id="customerId" placeholder="הזן מספר ח.פ/ת.ז">
-    
         <label for="customerPhone">נייד:</label>
         <input type="text" id="customerPhone" placeholder="הזן מספר נייד">
     </section>
-    
+
     <button onclick="addRow()">הוסף שורה</button>
-    
-    <p>סה"כ לתשלום: <span id="totalAmount">0</span> ₪</p>
-    
     
     <table>
         <thead>
@@ -51,9 +40,27 @@
             </tr>
         </thead>
         <tbody id="invoiceTable">
-            <!-- השורות יתעדכנו דינמית -->
         </tbody>
     </table>
-    <button onclick="generatePDF()">📄 ייצא ל-PDF</button>
+
+    <h2>פרטי תשלום</h2>
+    <button onclick="addPaymentRow()">הוסף שורת תשלום</button>
+
+    <table>
+        <thead>
+            <tr>
+                <th>אמצעי תשלום</th>
+                <th>פירוט</th>
+                <th>תאריך</th>
+                <th>סכום</th>
+            </tr>
+        </thead>
+        <tbody id="paymentTable">
+        </tbody>
+    </table>
+
+    <p>סה"כ שולם: <span id="totalPaid">0</span> ₪</p>
+
+    <button onclick="generateReceiptPDF()">📄 ייצא קבלה ל-PDF</button>
 </body>
 </html>
