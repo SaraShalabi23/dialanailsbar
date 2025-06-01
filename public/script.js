@@ -336,7 +336,7 @@ const receiptNumber = await getReceiptNumber();
 
     // ✅ ✅ ✅ כותרת ראשית "קבלה"
     doc.setFontSize(20);
-    doc.text(reverseHebrewText("קבלה"), 120, 20, { align: "right" });
+    doc.text(reverseHebrewText("חשבונית"), 120, 20, { align: "right" });
 
     // ✅ פרטי העסק מסודרים
     doc.setFontSize(14);
@@ -349,7 +349,7 @@ const receiptNumber = await getReceiptNumber();
 
     // ✅ מספר קבלה
     doc.setFontSize(14);
-    doc.text( reverseHebrewText("מספר קבלה"), 180, 60, { align: "right" });
+    doc.text( reverseHebrewText("מספר חשבונית"), 180, 60, { align: "right" });
     doc.text(String(receiptNumber), 150, 60, { align: "right" }); // מספר הקבלה - מוצג נכון
 
 
