@@ -12,17 +12,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
 <script src="https://unpkg.com/jspdf@latest/dist/jspdf.customfonts.min.js"></script>
+<!-- טעינת Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"></script>
 
-<script defer src="script.js"></script>
+<script type="module" src="script.js"></script>
+
     
 
 </head>
-<body>
+<body >
     <header>
         <h1>Nailsbar diala</h1>
         <p>עוסק פטור: 318478708 | אימייל: ddrawshi5@gmail.com</p>
         <p>תאריך: <span id="currentDate"></span></p>
-        <p>מספר חשבון חיוב: <span id="invoiceNumber">50001</span></p>
+        <p>מספר חשבון חיוב: <span id="invoiceNumber"></span></p>
     </header>
     
     <section>
@@ -54,6 +58,18 @@
             <!-- השורות יתעדכנו דינמית -->
         </tbody>
     </table>
-    <button onclick="generatePDF()">📄 ייצא ל-PDF</button>
+    <button onclick="generatePDF()">📄 הצגה מוקדמת</button>
+    <button onclick="viewPdfpayment()">📄 הפקת מסמך</button>
+
+    <script>
+        function loadInvoiceNumber() {
+            db.ref("invoiceNumber").once("value", snapshot => {
+                const currentNumber = snapshot.val() || 0;
+                document.getElementById("invoiceNumber").textContent = currentNumber + 1;
+            });
+        }
+        loadInvoiceNumber();
+    </script>
+    
 </body>
 </html>

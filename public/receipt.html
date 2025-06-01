@@ -3,19 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>קבלה</title>
+    <title>חשבונית</title>
 
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/jspdf@latest/dist/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
-    <script defer src="script.js"></script>
-</head>
-<body>
+    <!-- טעינת Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"></script>
+    
+    <script type="module" src="script.js"></script>
+    <body>
     <header>
         <h1>Nailsbar Diala</h1>
         <p>עוסק פטור: 318478708 | אימייל: ddrawshi5@gmail.com</p>
         <p>תאריך: <span id="currentDate"></span></p>
-        <p>מספר קבלה: <span id="receiptNumber">60001</span></p>
+        <p>מספר חשבונית: <span id="receiptNumber"></span></p>
     </header>
     
     <section>
@@ -61,6 +64,18 @@
 
     <p>סה"כ שולם: <span id="totalPaid">0</span> ₪</p>
 
-    <button onclick="generateReceiptPDF()">📄 ייצא קבלה ל-PDF</button>
+    <button onclick="generateReceiptPDF()">📄 הצגה מוקדמת</button>
+    <button onclick="viewPdfrec()">📄הפקת קבלה</button>
+
+    <script>
+        function loadReceiptNumber() {
+            db.ref("receiptNumber").once("value", snapshot => {
+                const currentNumber = snapshot.val() || 0;
+                document.getElementById("receiptNumber").textContent = currentNumber + 1;
+            });
+        }
+        loadReceiptNumber();
+    </script>
+    
 </body>
 </html>
